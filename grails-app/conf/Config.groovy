@@ -88,3 +88,8 @@ log4j = {
 
     warn   'org.mortbay.log'
 }
+
+//cloud-foundry settings
+grails.plugin.cloudfoundry.username = 'manijshrestha@gmail.com'
+grails.plugin.cloudfoundry.password = 'secret'
+grails.plugin.cloudfoundry.appname = 'findevents'
