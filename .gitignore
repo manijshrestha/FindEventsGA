@@ -3,3 +3,4 @@
 .settings/
 target/
 stacktrace.log
+web-app/WEB-INF/classes/
