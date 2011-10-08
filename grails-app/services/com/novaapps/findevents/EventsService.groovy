@@ -32,10 +32,10 @@ class EventsService {
 				   // are going to get ref to it at this level		
                  
 			// EVENT Tag
-			div (id: "event${count++}") {
-				       div(eventInfo.photo_url)
-				       div(eventInfo.name)
-				       div(eventInfo.venue_name)
+			div (id: "event${count++}", class:'event') {
+				       div(class:'event_icon', eventInfo.photo_url)
+				       div(class:'event_name', eventInfo.name)
+				       div(class:'event_venue', eventInfo.venue_name)
  				}
 			}
 		
@@ -43,5 +43,4 @@ class EventsService {
        
 	return writer
 	} 
-
 }

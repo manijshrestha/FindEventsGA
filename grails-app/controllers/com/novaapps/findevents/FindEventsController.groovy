@@ -7,6 +7,7 @@ class FindEventsController {
     def index = { }
 	
 	def findByZip = {
-		render eventsService.findEventsByZip("55123")
+	        def zipCode = params.zipCode
+		render eventsService.findEventsByZip(zipCode)
 		}
 }
