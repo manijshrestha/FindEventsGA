@@ -1,5 +1,7 @@
 package com.novaapps.findevents
 
+import groovy.xml.MarkupBuilder
+
 class EventsService {
 
     static transactional = true
@@ -7,8 +9,39 @@ class EventsService {
 
     def findEventsByZip(String zipCode) {
 		def responseJson = yqlService.runQueryForJsonResponse("select * from upcoming.events where location=$zipCode")
-		responseJson.query.results.event.each{println it
-			print '***************'}		
-		return "Response: "
+				
+		return getEventDiv(responseJson)
     }
+
+    
+	/**
+	* Should return a div with all the events
+	* <div id = "events">
+	*  <div id = "event1">Some Info here</div>
+	* </div>
+	**/
+	private def getEventDiv(def jsonObject){
+	def writer = new StringWriter()
+	def html = new MarkupBuilder(writer)
+	def count=1
+	
+	html.div(id:'events'){
+		jsonObject.query.results.event.each{ 
+		
+		def eventInfo = it // Only available at the higher level so we 
+				   // are going to get ref to it at this level		
+                 
+			// EVENT Tag
+			div (id: "event${count++}") {
+				       div(eventInfo.photo_url)
+				       div(eventInfo.name)
+				       div(eventInfo.venue_name)
+ 				}
+			}
+		
+		}
+       
+	return writer
+	} 
+
 }
