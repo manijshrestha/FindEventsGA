@@ -91,5 +91,5 @@ log4j = {
 
 //cloud-foundry settings
 grails.plugin.cloudfoundry.username = 'manijshrestha@gmail.com'
-grails.plugin.cloudfoundry.password = 'secret'
+grails.plugin.cloudfoundry.password = 'JaTxBofx'
 grails.plugin.cloudfoundry.appname = 'findevents'
