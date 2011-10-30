@@ -14,19 +14,17 @@ import static groovyx.net.http.ContentType.JSON
  */
 class YqlService {
 
-    static transactional = true
+	static transactional = true
 	static final String YQL_URL = "http://query.yahooapis.com"
-    
+
 	def runQueryForJsonResponse(String query) {
 		def http = new HTTPBuilder(YQL_URL)
-		 
+
 		http.request(GET, JSON) {
 			uri.path = '/v1/public/yql'
 			uri.query=[format:'json', q: query]
-	
-			response.success = { resp, json ->
-						return json
-			}		
+
+			response.success = { resp, json -> return json }
 		}
-    }
+	}
 }

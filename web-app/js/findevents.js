@@ -6,7 +6,8 @@ $(document).ready(function(){
       });
     
     $("#search_by_zip_btn").click(function(event){
-    	alert("Searching...");
+    	//alert("Searching...");
+    	$.ajax({url: 'findEvents/findByZip', data:'zipCode=55123', success: function(data){ $("#event-list").html(data);}})
     });
  });
 
